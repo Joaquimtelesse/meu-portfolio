@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joaquim | Dev Portfólio</title>
+    <style>
+        /* CORES LEVES E DESCANSADAS (PALETA SOFT) */
+        :root {
+            --bg: #f8fafc; /* Branco levemente acinzentado */
+            --text: #334155; /* Cinza escuro suave */
+            --card: #ffffff;
+            --accent: #6366f1; /* Roxo suave */
+            --border: #e2e8f0;
+        }
+
+        body.dark-mode {
+            --bg: #0f172a; /* Azul marinho muito escuro (menos que preto) */
+            --text: #cbd5e1; /* Cinza claro azulado */
+            --card: #1e293b; /* Azul ardósia */
+            --accent: #818cf8; /* Roxo pastel */
+            --border: #334155;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            transition: background 0.4s ease, color 0.4s ease;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container { max-width: 900px; width: 100%; }
+
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border); }
+
+        /* BOTÕES ESTILIZADOS */
+        button {
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+        .btn-accent { background: var(--accent); color: white; border: none; margin: 20px 0; }
+
+        /* GRADE DE ESTUDOS LADO A LADO */
+        .grid-materias {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .materia-card {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        /* SEÇÃO SOBRE MIM */
+        #about-content {
+            display: none; /* Começa escondido */
+            background: var(--card);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid var(--accent);
+            line-height: 1.6;
+        }
+
+        .projeto-box {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+        }
+
+        a { color: var(--accent); text-decoration: none; font-weight: bold; }
+
+        @media (max-width: 768px) {
+            .grid-materias { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body id="meuBody">
+
+    <div class="container">
+        <nav>
+            <h2 style="margin:0;">JOAQUIM</h2>
+            <button onclick="alternarTema()">🌙 Modo Noturno</button>
+        </nav>
+
+        <header>
+            <h1>Desenvolvedor de Sistemas</h1>
+            <p>Arquitetura Full-Stack e Engenharia de Dados.</p>
+            
+            <button class="btn-accent" onclick="mostrarSobre()">👤 Ver Perfil Profissional</button>
+            
+            <div id="about-content">
+                <strong>👤 Perfil Profissional</strong><br>
+                O Joaquim é um estudante de tecnologia focado na arquitetura completa de aplicações. Transita entre a interface (Front-End) e a lógica complexa que roda no servidor (Back-End).
+                <br><br>
+                <strong>🚀 Diferencial:</strong> Especialista em Versionamento (Git) e Mensageria para sistemas profissionais.
+            </div>
+        </header>
+
+        <section>
+            <h3>📚 Minhas Disciplinas (Bases)</h3>
+            <div class="grid-materias">
+                <div class="materia-card"><h4>Full-Stack</h4><p>Web App</p></div>
+                <div class="materia-card"><h4>Dados</h4><p>Bancos SQL</p></div>
+                <div class="materia-card"><h4>Mobile</h4><p>Apps</p></div>
+                <div class="materia-card"><h4>IA</h4><p>Automação</p></div>
+            </div>
+        </section>
+
+        <section class="projeto-box">
+            <h3>🍫 Projeto: Império do Choco</h3>
+            <a href="https://github.com/alvez71/imperio-do-choco.git" target="_blank">Acessar Repositório do Projeto ↗</a>
+        </section>
+
+        <section class="projeto-box">
+            <h3>📂 Código deste Portfólio</h3>
+            <a href="https://github.com/Joaquimtelesse/meu-portfolio.git" target="_blank">Ver Repositório no GitHub ↗</a>
+        </section>
+
+        <footer style="text-align: center; margin-top: 40px; padding: 20px; opacity: 0.7;">
+            <p>Contato: <strong>joaquimtelesse993@gmail.com</strong></p>
+        </footer>
+    </div>
+
+    <script>
+        // FUNÇÃO CLARO/ESCURO
+        function alternarTema() {
+            const corpo = document.getElementById('meuBody');
+            corpo.classList.toggle('dark-mode');
+            
+            // Troca o texto do botão para avisar o usuário
+            const botao = event.target;
+            if(corpo.classList.contains('dark-mode')) {
+                botao.innerHTML = "☀️ Modo Claro";
+            } else {
+                botao.innerHTML = "🌙 Modo Noturno";
+            }
+        }
+
+        // FUNÇÃO MOSTRAR SOBRE MIM
+        function mostrarSobre() {
+            const caixaSobre = document.getElementById('about-content');
+            
+            if (caixaSobre.style.display === "block") {
+                caixaSobre.style.display = "none";
+            } else {
+                caixaSobre.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

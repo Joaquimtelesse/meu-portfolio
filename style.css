@@ -1,0 +1,72 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --card-bg: #f4f4f4;
+    --accent-color: #e67e22;
+}
+
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f4f4f4;
+    --card-bg: #2d2d2d;
+    --accent-color: #f39c12;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', sans-serif;
+    transition: 0.3s;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+#theme-toggle {
+    cursor: pointer;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background: var(--accent-color);
+    color: white;
+}
+
+/* Isso vai forçar os cards a ficarem lado a lado */
+.grid-materias {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cria 4 colunas iguais */
+    gap: 15px; /* Espaço entre elas */
+    margin-top: 20px;
+}
+
+/* Ajuste para celulares (para não quebrar o layout em telas pequenas) */
+@media (max-width: 768px) {
+    .grid-materias {
+        grid-template-columns: repeat(2, 1fr); /* 2 por linha no celular */
+    }
+}
