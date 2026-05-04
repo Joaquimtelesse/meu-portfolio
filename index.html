@@ -1,172 +1,173 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joaquim | Dev Portfólio</title>
-    <style>
-        /* CORES LEVES E DESCANSADAS (PALETA SOFT) */
-        :root {
-            --bg: #f8fafc; /* Branco levemente acinzentado */
-            --text: #334155; /* Cinza escuro suave */
-            --card: #ffffff;
-            --accent: #6366f1; /* Roxo suave */
-            --border: #e2e8f0;
-        }
-
-        body.dark-mode {
-            --bg: #0f172a; /* Azul marinho muito escuro (menos que preto) */
-            --text: #cbd5e1; /* Cinza claro azulado */
-            --card: #1e293b; /* Azul ardósia */
-            --accent: #818cf8; /* Roxo pastel */
-            --border: #334155;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            transition: background 0.4s ease, color 0.4s ease;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .container { max-width: 900px; width: 100%; }
-
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border); }
-
-        /* BOTÕES ESTILIZADOS */
-        button {
-            padding: 12px 20px;
-            cursor: pointer;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            background: var(--card);
-            color: var(--text);
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-
-        .btn-accent { background: var(--accent); color: white; border: none; margin: 20px 0; }
-
-        /* GRADE DE ESTUDOS LADO A LADO */
-        .grid-materias {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .materia-card {
-            background: var(--card);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid var(--border);
-        }
-
-        /* SEÇÃO SOBRE MIM */
-        #about-content {
-            display: none; /* Começa escondido */
-            background: var(--card);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 20px 0;
-            border: 1px solid var(--accent);
-            line-height: 1.6;
-        }
-
-        .projeto-box {
-            background: var(--card);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 20px 0;
-            border: 1px solid var(--border);
-        }
-
-        a { color: var(--accent); text-decoration: none; font-weight: bold; }
-
-        @media (max-width: 768px) {
-            .grid-materias { grid-template-columns: repeat(2, 1fr); }
-        }
-    </style>
+    <meta name="description" content="Portf&oacute;lio pessoal de Joaquim Telesse.">
+    <title>Joaquim Telesse | Portf&oacute;lio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body id="meuBody">
+<body>
+    <div class="page">
+        <header class="topbar">
+            <a class="brand" href="#inicio">Joaquim Telesse</a>
 
-    <div class="container">
-        <nav>
-            <h2 style="margin:0;">JOAQUIM</h2>
-            <button onclick="alternarTema()">🌙 Modo Noturno</button>
-        </nav>
+            <nav class="menu" aria-label="Navegacao principal">
+                <a href="#sobre">Sobre</a>
+                <a href="#habilidades">Habilidades</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#contato">Contato</a>
+            </nav>
 
-        <header>
-            <h1>Desenvolvedor de Sistemas</h1>
-            <p>Arquitetura Full-Stack e Engenharia de Dados.</p>
-            
-            <button class="btn-accent" onclick="mostrarSobre()">👤 Ver Perfil Profissional</button>
-            
-            <div id="about-content">
-                <strong>👤 Perfil Profissional</strong><br>
-                O Joaquim é um estudante de tecnologia focado na arquitetura completa de aplicações. Transita entre a interface (Front-End) e a lógica complexa que roda no servidor (Back-End).
-                <br><br>
-                <strong>🚀 Diferencial:</strong> Especialista em Versionamento (Git) e Mensageria para sistemas profissionais.
-            </div>
+            <button id="theme-toggle" type="button">Tema escuro</button>
         </header>
 
-        <section>
-            <h3>📚 Minhas Disciplinas (Bases)</h3>
-            <div class="grid-materias">
-                <div class="materia-card"><h4>Full-Stack</h4><p>Web App</p></div>
-                <div class="materia-card"><h4>Dados</h4><p>Bancos SQL</p></div>
-                <div class="materia-card"><h4>Mobile</h4><p>Apps</p></div>
-                <div class="materia-card"><h4>IA</h4><p>Automação</p></div>
-            </div>
-        </section>
+        <main>
+            <section id="inicio" class="hero">
+                <p class="section-label">Portfolio pessoal</p>
+                <h1>Joaquim.</h1>
 
-        <section class="projeto-box">
-            <h3>🍫 Projeto: Império do Choco</h3>
-            <a href="https://github.com/alvez71/imperio-do-choco.git" target="_blank">Acessar Repositório do Projeto ↗</a>
-        </section>
+                <div class="hero-actions">
+                    <button id="details-toggle" class="btn btn-secondary" type="button" aria-expanded="false" aria-controls="intro-details sobre">Mostrar mais</button>
+                    <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+                    <a class="simple-link" href="https://github.com/Joaquimtelesse/meu-portfolio.git" target="_blank" rel="noreferrer">GitHub</a>
+                </div>
 
-        <section class="projeto-box">
-            <h3>📂 Código deste Portfólio</h3>
-            <a href="https://github.com/Joaquimtelesse/meu-portfolio.git" target="_blank">Ver Repositório no GitHub ↗</a>
-        </section>
+                <div id="intro-details" class="intro-details" hidden>
+                    <p class="hero-copy">
+                        Sou estudante de desenvolvimento de sistemas e estou aprendendo a criar projetos web com frontend, backend e banco de dados.
+                    </p>
 
-        <footer style="text-align: center; margin-top: 40px; padding: 20px; opacity: 0.7;">
-            <p>Contato: <strong>joaquimtelesse993@gmail.com</strong></p>
+                    <div class="hero-list">
+                        <span>HTML e CSS</span>
+                        <span>Logica de programacao</span>
+                        <span>Git e organizacao</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="sobre" class="section" hidden>
+                <p class="section-label">Sobre</p>
+                <h2>Estou construindo minha base na area de tecnologia.</h2>
+                <p class="section-text">
+                    Gosto de projetos simples, organizados e faceis de entender. Meu foco atual e
+                    aprender melhor frontend, backend e estrutura de banco de dados sem complicar o visual.
+                </p>
+            </section>
+
+            <section id="habilidades" class="section">
+                <p class="section-label">Habilidades</p>
+                <h2>O que faz parte do meu aprendizado.</h2>
+
+                <div class="skills-grid">
+                    <article class="box">
+                        <h3>Frontend</h3>
+                        <p>Paginas simples, responsivas e com boa leitura.</p>
+                    </article>
+                    <article class="box">
+                        <h3>Backend</h3>
+                        <p>Estrutura de logica, organizacao e funcionamento.</p>
+                    </article>
+                    <article class="box">
+                        <h3>Banco de dados</h3>
+                        <p>Uso inicial de SQL e modelagem basica.</p>
+                    </article>
+                    <article class="box">
+                        <h3>Versionamento</h3>
+                        <p>Git para acompanhar mudancas e projetos.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="projetos" class="section">
+                <p class="section-label">Projetos</p>
+                <h2>Alguns trabalhos que ja fiz.</h2>
+
+                <div class="projects-grid">
+                    <article class="box">
+                        <p class="project-type">Projeto comercial</p>
+                        <h3>Imperio do Choco</h3>
+                        <p>Projeto com foco em apresentacao digital e identidade de uma marca.</p>
+                        <a class="simple-link" href="https://github.com/alvez71/imperio-do-choco.git" target="_blank" rel="noreferrer">Abrir repositorio</a>
+                    </article>
+
+                    <article class="box">
+                        <p class="project-type">Projeto pessoal</p>
+                        <h3>Meu Portfolio</h3>
+                        <p>Pagina pessoal para mostrar meu momento atual como estudante.</p>
+                        <a class="simple-link" href="https://github.com/Joaquimtelesse/meu-portfolio.git" target="_blank" rel="noreferrer">Ver no GitHub</a>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer id="contato" class="footer">
+            <p class="section-label">Contato</p>
+            <a class="contact-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
         </footer>
     </div>
 
     <script>
-        // FUNÇÃO CLARO/ESCURO
-        function alternarTema() {
-            const corpo = document.getElementById('meuBody');
-            corpo.classList.toggle('dark-mode');
-            
-            // Troca o texto do botão para avisar o usuário
-            const botao = event.target;
-            if(corpo.classList.contains('dark-mode')) {
-                botao.innerHTML = "☀️ Modo Claro";
+        const body = document.body;
+        const themeToggle = document.getElementById("theme-toggle");
+        const detailsToggle = document.getElementById("details-toggle");
+        const introDetails = document.getElementById("intro-details");
+        const aboutSection = document.getElementById("sobre");
+        const aboutLink = document.querySelector('a[href="#sobre"]');
+
+        const updateThemeLabel = () => {
+            themeToggle.textContent = body.classList.contains("dark-mode") ? "Tema claro" : "Tema escuro";
+        };
+
+        const updateDetails = (isOpen) => {
+            if (isOpen) {
+                introDetails.removeAttribute("hidden");
+                aboutSection.removeAttribute("hidden");
             } else {
-                botao.innerHTML = "🌙 Modo Noturno";
+                introDetails.setAttribute("hidden", "");
+                aboutSection.setAttribute("hidden", "");
             }
+
+            detailsToggle.textContent = isOpen ? "Esconder texto" : "Mostrar mais";
+            detailsToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        };
+
+        try {
+            if (localStorage.getItem("portfolio-theme") === "dark") {
+                body.classList.add("dark-mode");
+            }
+        } catch (error) {
+            console.warn("Nao foi possivel ler o tema salvo.", error);
         }
 
-        // FUNÇÃO MOSTRAR SOBRE MIM
-        function mostrarSobre() {
-            const caixaSobre = document.getElementById('about-content');
-            
-            if (caixaSobre.style.display === "block") {
-                caixaSobre.style.display = "none";
-            } else {
-                caixaSobre.style.display = "block";
+        updateThemeLabel();
+
+        themeToggle.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            updateThemeLabel();
+
+            try {
+                localStorage.setItem("portfolio-theme", body.classList.contains("dark-mode") ? "dark" : "light");
+            } catch (error) {
+                console.warn("Nao foi possivel salvar o tema.", error);
             }
-        }
+        });
+
+        detailsToggle.addEventListener("click", () => {
+            const isOpen = !introDetails.hasAttribute("hidden");
+            updateDetails(!isOpen);
+        });
+
+        aboutLink.addEventListener("click", (event) => {
+            if (aboutSection.hasAttribute("hidden")) {
+                event.preventDefault();
+                updateDetails(true);
+                aboutSection.scrollIntoView({ behavior: "smooth" });
+            }
+        });
     </script>
 </body>
 </html>
